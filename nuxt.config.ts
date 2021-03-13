@@ -32,7 +32,7 @@ const config: NuxtConfig = {
   },
   content: {},
   vuetify: {
-    customVariables: ['~/assets/variables.scss'],
+    customVariables: ['~/styles/variables.scss'],
   },
   build: {},
 }
