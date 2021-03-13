@@ -33,6 +33,12 @@ const config: NuxtConfig = {
   content: {},
   vuetify: {
     customVariables: ['~/styles/variables.scss'],
+    treeShake: true,
+    defaultAssets: false,
+    icons: {
+      iconfont: 'mdiSvg',
+      values: {},
+    },
   },
   build: {},
 }

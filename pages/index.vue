@@ -3,7 +3,11 @@
     <v-row>
       <v-col cols="12">
         <v-card>
-          <v-card-title>Home</v-card-title>
+          <v-card-text class="text-center">
+            <img src="/icon.png" class="logo" />
+          </v-card-text>
+          <v-divider />
+          <v-card-text class="text-center text-h4"> SwarmP </v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -22,3 +26,12 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style lang="scss" scoped>
+$size: 80vmin;
+
+.logo {
+  max-width: $size;
+  max-height: $size;
+}
+</style>
