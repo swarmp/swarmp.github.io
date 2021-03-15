@@ -10,7 +10,7 @@ function run(cmd: string) {
 function getGitInfo() {
   return {
     branch: run('git rev-parse --abbrev-ref HEAD'),
-    hash: run('git rev-parse --short HEAD'),
+    hash: run('git rev-parse HEAD'),
   }
 }
 
