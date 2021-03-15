@@ -4,6 +4,7 @@ interface IBuildInfo {
     hash: string
   }
   hostname: string
+  ts: number
 }
 
 declare const BUILD: IBuildInfo

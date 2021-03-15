@@ -4,21 +4,34 @@
       <div class="text-overline mr-2" style="text-transform: none !important">
         &copy; {{ new Date().getFullYear() }} The SwarmP Team
       </div>
-      <v-tooltip top>
+      <v-menu open-on-hover>
         <template #activator="{ on }">
-          <v-btn icon :href="COMMIT_URL" target="_blank" v-on="on">
+          <v-btn icon v-on="on">
             <v-icon>{{ mdiGit }}</v-icon>
           </v-btn>
         </template>
-        <code>{{ BUILD_TEXT }}</code>
-      </v-tooltip>
+        <v-list dense>
+          <v-list-item :href="COMMIT_URL" target="_blank">
+            <v-list-item-icon>
+              <v-icon>{{ mdiGit }}</v-icon>
+            </v-list-item-icon>
+            <code>{{ BUILD_TEXT }}</code>
+          </v-list-item>
+          <v-list-item>
+            <v-list-item-icon>
+              <v-icon>{{ mdiClockOutline }}</v-icon>
+            </v-list-item-icon>
+            <code>{{ buildTime }}</code>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-row>
   </v-footer>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { mdiGit } from '@mdi/js'
+import { mdiGit, mdiClockOutline } from '@mdi/js'
 
 const COMMIT_URL = `https://github.com/swarmp/swarmp.github.io/commit/${BUILD.git.hash}`
 const BUILD_TEXT =
@@ -29,7 +42,12 @@ export default Vue.extend({
   data: () => ({
     COMMIT_URL,
     BUILD_TEXT,
+    buildTime: BUILD.ts.toString(),
     mdiGit,
+    mdiClockOutline,
   }),
+  mounted() {
+    this.buildTime = new Date(BUILD.ts).toLocaleString()
+  },
 })
 </script>
