@@ -12,7 +12,10 @@ const config: NuxtConfig = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-  css: [],
+  css: [
+    //
+    '~/styles/markdown.scss',
+  ],
   plugins: [],
   components: true,
   buildModules: [

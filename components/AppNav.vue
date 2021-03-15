@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mdiHome } from '@mdi/js'
+import { mdiHome, mdiAccountMultiple } from '@mdi/js'
 
 export default Vue.extend({
   name: 'AppNav',
@@ -27,7 +27,10 @@ export default Vue.extend({
   props: ['value'],
   data() {
     return {
-      links: [{ to: '/', icon: mdiHome, text: 'Home' }],
+      links: [
+        { to: '/', icon: mdiHome, text: 'Home' },
+        { to: '/member', icon: mdiAccountMultiple, text: 'Members' },
+      ],
     }
   },
 })
