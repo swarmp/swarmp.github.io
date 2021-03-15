@@ -1,6 +1,6 @@
 ---
 name  : skylee
-email : i@skylee.xyz
+email : 1178715749@qq.com
 motto : 「越頹廢，越快樂」
 role  : Member
 ---
