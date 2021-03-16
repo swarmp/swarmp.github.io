@@ -1,4 +1,18 @@
+import cp from 'child_process'
+import os from 'os'
 import { NuxtConfig } from '@nuxt/types'
+import { DefinePlugin } from 'webpack'
+
+function run(cmd: string) {
+  return cp.execSync(cmd).toString().trim()
+}
+
+function getGitInfo() {
+  return {
+    branch: run('git rev-parse --abbrev-ref HEAD'),
+    hash: run('git rev-parse HEAD'),
+  }
+}
 
 const config: NuxtConfig = {
   target: 'static',
@@ -43,7 +57,17 @@ const config: NuxtConfig = {
       values: {},
     },
   },
-  build: {},
+  build: {
+    plugins: [
+      new DefinePlugin({
+        BUILD: JSON.stringify({
+          git: getGitInfo(),
+          hostname: os.hostname(),
+          ts: Date.now(),
+        }),
+      }),
+    ],
+  },
 }
 
 export default config
