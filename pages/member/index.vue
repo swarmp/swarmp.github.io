@@ -15,7 +15,7 @@
                 md="3"
                 xl="2"
               >
-                <v-card outlined :to="'/member/' + member.name" hover>
+                <v-card outlined :to="member.path" hover nuxt>
                   <v-list-item>
                     <v-list-item-avatar>
                       <v-img :src="getAvatarUrl(member.email)" />

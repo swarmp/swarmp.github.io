@@ -28,7 +28,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-$size: 80vmin;
+$size: 60vmin;
 
 .logo {
   max-width: $size;

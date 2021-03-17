@@ -59,7 +59,7 @@ export default Vue.extend({
   },
   head() {
     return {
-      title: 'Members',
+      title: this.member.name + ' - Member',
     }
   },
   methods: {

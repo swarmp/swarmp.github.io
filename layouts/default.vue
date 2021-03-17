@@ -1,7 +1,7 @@
 <template>
   <v-app>
-    <app-bar v-model="drawer" />
-    <app-nav v-model="drawer" />
+    <app-bar />
+    <app-nav />
     <v-main>
       <nuxt />
     </v-main>
@@ -14,8 +14,5 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'App',
-  data: () => ({
-    drawer: false,
-  }),
 })
 </script>

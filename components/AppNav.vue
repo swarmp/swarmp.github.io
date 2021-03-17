@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer :value="value" app @input="$emit('change', $event)">
+  <v-navigation-drawer v-model="nav" app>
     <v-list nav dense>
       <v-list-item v-for="(link, i) of links" :key="i" :to="link.to" nuxt>
         <v-list-item-avatar tile size="24">
@@ -15,23 +15,22 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { mdiHome, mdiAccountMultiple } from '@mdi/js'
+import { mdiHome, mdiAccountMultiple, mdiFormatListText } from '@mdi/js'
+import { sync } from 'vuex-pathify'
 
 export default Vue.extend({
   name: 'AppNav',
-  model: {
-    prop: 'value',
-    event: 'change',
-  },
-  // eslint-disable-next-line vue/require-prop-types
-  props: ['value'],
   data() {
     return {
       links: [
         { to: '/', icon: mdiHome, text: 'Home' },
         { to: '/member', icon: mdiAccountMultiple, text: 'Members' },
+        { to: '/blog', icon: mdiFormatListText, text: 'Blog' },
       ],
     }
+  },
+  computed: {
+    nav: sync('showNavDrawer'),
   },
 })
 </script>
